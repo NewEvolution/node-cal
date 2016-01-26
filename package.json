@@ -1,0 +1,23 @@
+{
+  "name": "node-cal",
+  "version": "1.0.0",
+  "description": "Command line JavaScript/Node calendar",
+  "main": "cal.js",
+  "scripts": {
+    "test": "mocha --harmony_destructuring tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NewEvolution/node-cal.git"
+  },
+  "author": "Ryan Tanay <rtanay@gmail.com> (http://portfolio.ryantanay.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NewEvolution/node-cal/issues"
+  },
+  "homepage": "https://github.com/NewEvolution/node-cal#readme",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
+  }
+}
