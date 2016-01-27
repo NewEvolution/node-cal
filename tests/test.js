@@ -76,4 +76,21 @@ describe("Calendar", () => {
       });
     });
   });
+
+  describe("Utility functions", () => {
+    var utility = require("../lib/utility");
+    describe(".center", () => {
+      it("Should center January 2016", () => {
+        expect(utility.center("January", "2016")).to.equal("    January 2016");
+      });
+
+      it("Should center February 2016", () => {
+        expect(utility.center("February", "2016")).to.equal("   February 2016");
+      });
+
+      it("Should center May 120", () => {
+        expect(utility.center("May", "120")).to.equal("      May 120");
+      });
+    });
+  });
 });
