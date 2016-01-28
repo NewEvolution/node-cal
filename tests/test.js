@@ -11,52 +11,54 @@ describe("Test suite", () => {
 
 describe("Calendar", () => {
   describe("CLI", () => {
-    it("Should handle the current month", () => {
-      const expected = execSync("cal").toString();
-      const actual = execSync("./cal.js").toString();
-      expect(actual).to.equal(expected);
-    });
+    describe("Single month output", () => {
+      it("Should handle the current month", () => {
+        const expected = execSync("cal").toString();
+        const actual = execSync("./cal.js").toString();
+        expect(actual).to.equal(expected);
+      });
 
-    it("Should handle 6 week months", () => {
-      const expected = execSync("cal 8 2015").toString();
-      const actual = execSync("./cal.js 8 2015").toString();
-      expect(actual).to.equal(expected);
-    });
+      it("Should handle 6 week months", () => {
+        const expected = execSync("cal 8 2015").toString();
+        const actual = execSync("./cal.js 8 2015").toString();
+        expect(actual).to.equal(expected);
+      });
 
-    it("Should handle 5 week months", () => {
-      const expected = execSync("cal 10 2015").toString();
-      const actual = execSync("./cal.js 10 2015").toString();
-      expect(actual).to.equal(expected);
-    });
+      it("Should handle 5 week months", () => {
+        const expected = execSync("cal 10 2015").toString();
+        const actual = execSync("./cal.js 10 2015").toString();
+        expect(actual).to.equal(expected);
+      });
 
-    it("Should handle 4 week months", () => {
-      const expected = execSync("cal 2 2015").toString();
-      const actual = execSync("./cal.js 2 2015").toString();
-      expect(actual).to.equal(expected);
-    });
+      it("Should handle 4 week months", () => {
+        const expected = execSync("cal 2 2015").toString();
+        const actual = execSync("./cal.js 2 2015").toString();
+        expect(actual).to.equal(expected);
+      });
 
-    it("Should handle 30 day months", () => {
-      const expected = execSync("cal 11 2015").toString();
-      const actual = execSync("./cal.js 11 2015").toString();
-      expect(actual).to.equal(expected);
-    });
+      it("Should handle 30 day months", () => {
+        const expected = execSync("cal 11 2015").toString();
+        const actual = execSync("./cal.js 11 2015").toString();
+        expect(actual).to.equal(expected);
+      });
 
-    it("Should handle 31 day months", () => {
-      const expected = execSync("cal 12 2015").toString();
-      const actual = execSync("./cal.js 12 2015").toString();
-      expect(actual).to.equal(expected);
-    });
+      it("Should handle 31 day months", () => {
+        const expected = execSync("cal 12 2015").toString();
+        const actual = execSync("./cal.js 12 2015").toString();
+        expect(actual).to.equal(expected);
+      });
 
-    it("Should handle February leap years", () => {
-      const expected = execSync("cal 2 2012").toString();
-      const actual = execSync("./cal.js 2 2012").toString();
-      expect(actual).to.equal(expected);
-    });
+      it("Should handle February leap years", () => {
+        const expected = execSync("cal 2 2012").toString();
+        const actual = execSync("./cal.js 2 2012").toString();
+        expect(actual).to.equal(expected);
+      });
 
-    it("Should handle February non-leap years", () => {
-      const expected = execSync("cal 2 2014").toString();
-      const actual = execSync("./cal.js 2 2014").toString();
-      expect(actual).to.equal(expected);
+      it("Should handle February non-leap years", () => {
+        const expected = execSync("cal 2 2014").toString();
+        const actual = execSync("./cal.js 2 2014").toString();
+        expect(actual).to.equal(expected);
+      });
     });
   });
 
