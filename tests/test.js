@@ -92,5 +92,19 @@ describe("Calendar", () => {
         expect(utility.center("May", "120")).to.equal("      May 120");
       });
     });
+
+    describe(".parseMonth", () => {
+      it("Should return 1 for FEB", () => {
+        expect(utility.parseMonth("FEB")).to.equal(1);
+      });
+
+      it("Should return 1 for february", () => {
+        expect(utility.parseMonth("february")).to.equal(1);
+      });
+
+      it("Should return 1 for 2", () => {
+        expect(utility.parseMonth(2)).to.equal(1);
+      });
+    });
   });
 });
