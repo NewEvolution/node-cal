@@ -4,21 +4,24 @@
 
 const [,,...input] = process.argv;
 
-const zellers = require("./lib/zellers");
 const utility = require("./lib/utility");
 const locale = "en-us";
-let date;
-let header;
+let calendar = [];
+let month;
+let year;
 
 switch(input.length) {
   case 0:
-    date = new Date();
+    const date = new Date();
+    month = date.getMonth();
+    year = date.getFullYear();
     break;
   case 1:
-    date = new Date(utility.parseYear(input[0]), 0);
+    year = utility.parseYear(input[0]);
     break;
   case 2:
-    date = new Date(utility.parseYear(input[1]), utility.parseMonth(input[0]));
+    month = utility.parseMonth(input[0]);
+    year = utility.parseYear(input[1]);
     break;
   default:
     console.log("usage: cal [[month] year]");
@@ -26,15 +29,10 @@ switch(input.length) {
     break;
 }
 
-const month = date.toLocaleString(locale, {month: "long"});
-const monthNum = date.getMonth();
-const year = date.getFullYear();
 if(input[0] && !input[1]) {
-  header = utility.center(month);
+  calendar = utility.buildYear(year);
 } else {
-  header = utility.center(month, year);
+  calendar = utility.buildCal(month, year);
 }
-const startDay = zellers.getDay(year, monthNum + 1, 1);
-const calendar = utility.buildCal(header, startDay, monthNum, year);
 console.log(calendar.join("\n"));
 

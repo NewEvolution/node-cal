@@ -18,6 +18,12 @@ describe("Calendar", () => {
         expect(actual).to.equal(expected);
       });
 
+      it("Should handle August", () => {
+        const expected = execSync("cal 8 2016").toString();
+        const actual = execSync("./cal.js 8 2016").toString();
+        expect(actual).to.equal(expected);
+      });
+
       it("Should handle 6 week months", () => {
         const expected = execSync("cal 8 2015").toString();
         const actual = execSync("./cal.js 8 2015").toString();
@@ -60,10 +66,18 @@ describe("Calendar", () => {
         expect(actual).to.equal(expected);
       });
     });
+
+    describe("Full year output", () => {
+      it("Should handle 2016", () => {
+        const expected = execSync("cal 2016").toString();
+        const actual = execSync("./cal.js 2016").toString();
+        expect(actual).to.equal(expected);
+      });
+    });
   });
 
   describe("Zeller's congruence", () => {
-    var zellers = require("../lib/zellers");
+    const zellers = require("../lib/zellers");
     describe(".modifiedMonth", () => {
       it("Should return 13 for January", () => {
         const month = zellers.modifiedMonth(1);
@@ -122,21 +136,7 @@ describe("Calendar", () => {
   });
 
   describe("Utility functions", () => {
-    var utility = require("../lib/utility");
-    describe(".center", () => {
-      it("Should center January 2016", () => {
-        expect(utility.center("January", "2016")).to.equal("    January 2016");
-      });
-
-      it("Should center February 2016", () => {
-        expect(utility.center("February", "2016")).to.equal("   February 2016");
-      });
-
-      it("Should center May 120", () => {
-        expect(utility.center("May", "120")).to.equal("      May 120");
-      });
-    });
-
+    const utility = require("../lib/utility");
     describe(".parseMonth", () => {
       it("Should return 1 for FEB", () => {
         expect(utility.parseMonth("FEB")).to.equal(1);
