@@ -27,36 +27,14 @@ switch(input.length) {
 }
 
 const month = date.toLocaleString(locale, {month: "long"});
-const monthNum = date.getMonth() + 1;
+const monthNum = date.getMonth();
 const year = date.getFullYear();
 if(input[0] && !input[1]) {
   header = utility.center(month);
 } else {
   header = utility.center(month, year);
 }
-let calendar = [header];
-calendar[calendar.length] = "Su Mo Tu We Th Fr Sa";
-const startDay = zellers.getDay(year, monthNum, 1);
-let line = "";
-let day = 1;
-while(day <= 31) {
-  for(let i = 0; i < 7; ++i) {
-    if(i !== 0 && day <= 31) {
-      line += " ";
-    }
-    if(i < startDay && calendar.length === 2) {
-      line += "  ";
-    } else {
-      if(day < 10) {
-        line += " " + day;
-      } else if(day <= 31) {
-        line += day;
-      }
-      ++day;
-    }
-  }
-  calendar[calendar.length] = line;
-  line = "";
-}
+const startDay = zellers.getDay(year, monthNum + 1, 1);
+const calendar = utility.buildCal(header, startDay, monthNum, year);
 console.log(calendar.join("\n"));
 
