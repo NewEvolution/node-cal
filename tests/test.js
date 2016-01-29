@@ -133,6 +133,14 @@ describe("Calendar", () => {
       it("Should center May 120", () => {
         expect(utility.center(20, "May", "120")).to.equal("      May 120");
       });
+
+      it("Should center October for year view", () => {
+        expect(utility.center(20, "October")).to.equal("      October");
+      });
+
+      it("Should center 2016 for year view", () => {
+        expect(utility.center(63, 2016)).to.equal("                             2016");
+      });
     });
 
     describe(".parseMonth", () => {
