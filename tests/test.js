@@ -163,6 +163,99 @@ describe("Calendar", () => {
       it("Should return 1 for 2", () => {
         expect(utility.parseMonth(2)).to.equal(1);
       });
+
+      it("Should return an error for giberish", () => {
+        expect(utility.parseMonth.bind(utility.parseMoth, "giberish")).to.throw(RangeError);
+      });
+
+      it("Should return an error for months > 12", () => {
+        expect(utility.parseMonth.bind(utility.parseMoth, 15)).to.throw(RangeError);
+      });
+    });
+
+    describe(".parseYear", () => {
+      it("Should return 2015 for 2015", () => {
+        expect(utility.parseYear(2015)).to.equal(2015);
+      });
+
+      it("Should return 9999 for 9999", () => {
+        expect(utility.parseYear(9999)).to.equal(9999);
+      });
+
+      it("Should return 2015 for 2015", () => {
+        expect(utility.parseYear(2015)).to.equal(2015);
+      });
+
+      it("Should return 2015 for 2015", () => {
+        expect(utility.parseYear(2015)).to.equal(2015);
+      });
+
+      it("Should return an error for giberish", () => {
+        expect(utility.parseYear.bind(utility.parseYear, "giberish")).to.throw(RangeError);
+      });
+
+      it("Should return an error for years before 1753", () => {
+        expect(utility.parseYear.bind(utility.parseYear, 1752)).to.throw(RangeError);
+      });
+
+      it("Should return an error for years after 9999", () => {
+        expect(utility.parseYear.bind(utility.parseYear, 10000)).to.throw(RangeError);
+      });
+    });
+
+    describe(".buildCal", () => {
+      it("Should return the calendar for January 2015", () => {
+        const expected = execSync("cal 1 2015").toString();
+        const actual = utility.buildCal(0, 2015).join("\n") + "\n";
+        expect(actual).to.equal(expected);
+      });
+
+      it("Should return the calendar for February 2012", () => {
+        const expected = execSync("cal 2 2012").toString();
+        const actual = utility.buildCal(1, 2012).join("\n") + "\n";
+        expect(actual).to.equal(expected);
+      });
+
+      it("Should return the calendar for November 7685", () => {
+        const expected = execSync("cal 11 7685").toString();
+        const actual = utility.buildCal(10, 7685).join("\n") + "\n";
+        expect(actual).to.equal(expected);
+      });
+
+      it("Should return the calendar for August 2215", () => {
+        const expected = execSync("cal 8 2215").toString();
+        const actual = utility.buildCal(7, 2215).join("\n") + "\n";
+        expect(actual).to.equal(expected);
+      });
+      it("Should return the calendar for February 2022", () => {
+        const expected = execSync("cal 2 2022").toString();
+        const actual = utility.buildCal(1, 2022).join("\n") + "\n";
+        expect(actual).to.equal(expected);
+      });
+    });
+
+    describe(".buildYear", () => {
+      it("Should have a junk test", () => {
+        expect(utility.buildYear()).to.eql(["", ""]);
+      });
+    });
+
+    describe(".leapCheck", () => {
+      it("Should return 28 days for Feb 2015", () => {
+        expect(utility.leapCheck(2015)).to.equal(28);
+      });
+
+      it("Should return 29 days for Feb 2016", () => {
+        expect(utility.leapCheck(2016)).to.equal(29);
+      });
+
+      it("Should return 28 days for Feb 2700", () => {
+        expect(utility.leapCheck(2700)).to.equal(28);
+      });
+
+      it("Should return 29 days for Feb 2400", () => {
+        expect(utility.leapCheck(2400)).to.equal(29);
+      });
     });
   });
 });
