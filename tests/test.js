@@ -116,6 +116,14 @@ describe("Calendar", () => {
       it("Should return 4 (Thursday) for March 1, 2300", () => {
         expect(zellers.getDay(2300, 3, 1)).to.equal(4);
       });
+
+      it("Should return 0 (Sunday) for November 1, 2015", () => {
+        expect(zellers.getDay(2015, 11, 1)).to.equal(0);
+      });
+
+      it("Should return 6 (Saturday) for August 1, 2015", () => {
+        expect(zellers.getDay(2015, 8, 1)).to.equal(6);
+      });
     });
   });
 
