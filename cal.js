@@ -17,11 +17,21 @@ switch(input.length) {
     year = date.getFullYear();
     break;
   case 1:
-    year = utility.parseYear(input[0]);
+    try {
+      year = utility.parseYear(input[0]);
+    } catch(e) {
+      console.log(e);
+      process.exit(64);
+    }
     break;
   case 2:
-    month = utility.parseMonth(input[0]);
-    year = utility.parseYear(input[1]);
+    try {
+      month = utility.parseMonth(input[0]);
+      year = utility.parseYear(input[1]);
+    } catch(e) {
+      console.log(e);
+      process.exit(64);
+    }
     break;
   default:
     console.log("usage: cal [[month] year]");
