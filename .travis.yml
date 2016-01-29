@@ -1,0 +1,6 @@
+nguage: node_js
+node_js:
+  - node
+  - 5
+  - 4.2
+script: npm run coveralls
