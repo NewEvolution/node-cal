@@ -1,7 +1,7 @@
 "use strict";
 
-const {expect} = require("chai");
-const {spawn} = require("child_process");
+const expect = require("chai").expect;
+const execSync = require("child_process").execSync;
 
 describe("Full test", () => {
   describe("Test suite", () => {
@@ -13,50 +13,50 @@ describe("Full test", () => {
   describe("Calendar", () => {
     describe("CLI", () => {
       it("Should handle the current month", () => {
-        const expected = spawn("cal").toString();
-        const actual = spawn("./cal.js").toString();
+        const expected = execSync("cal").toString();
+        const actual = execSync("./cal.js").toString();
         expect(actual).to.equal(expected);
       });
 
       it("Should handle 6 week months", () => {
-        const expected = spawn("cal 8 2015").toString();
-        const actual = spawn("./cal.js 8 2015").toString();
+        const expected = execSync("cal 8 2015").toString();
+        const actual = execSync("./cal.js 8 2015").toString();
         expect(actual).to.equal(expected);
       });
 
       it("Should handle 5 week months", () => {
-        const expected = spawn("cal 10 2015").toString();
-        const actual = spawn("./cal.js 10 2015").toString();
+        const expected = execSync("cal 10 2015").toString();
+        const actual = execSync("./cal.js 10 2015").toString();
         expect(actual).to.equal(expected);
       });
 
       it("Should handle 4 week months", () => {
-        const expected = spawn("cal 2 2015").toString();
-        const actual = spawn("./cal.js 2 2015").toString();
+        const expected = execSync("cal 2 2015").toString();
+        const actual = execSync("./cal.js 2 2015").toString();
         expect(actual).to.equal(expected);
       });
 
       it("Should handle 30 day months", () => {
-        const expected = spawn("cal 11 2015").toString();
-        const actual = spawn("./cal.js 11 2015").toString();
+        const expected = execSync("cal 11 2015").toString();
+        const actual = execSync("./cal.js 11 2015").toString();
         expect(actual).to.equal(expected);
       });
 
       it("Should handle 31 day months", () => {
-        const expected = spawn("cal 12 2015").toString();
-        const actual = spawn("./cal.js 12 2015").toString();
+        const expected = execSync("cal 12 2015").toString();
+        const actual = execSync("./cal.js 12 2015").toString();
         expect(actual).to.equal(expected);
       });
 
       it("Should handle February leap years", () => {
-        const expected = spawn("cal 2 2012").toString();
-        const actual = spawn("./cal.js 2 2012").toString();
+        const expected = execSync("cal 2 2012").toString();
+        const actual = execSync("./cal.js 2 2012").toString();
         expect(actual).to.equal(expected);
       });
 
       it("Should handle February non-leap years", () => {
-        const expected = spawn("cal 2 2014").toString();
-        const actual = spawn("./cal.js 2 2014").toString();
+        const expected = execSync("cal 2 2014").toString();
+        const actual = execSync("./cal.js 2 2014").toString();
         expect(actual).to.equal(expected);
       });
     });
@@ -206,30 +206,30 @@ describe("Full test", () => {
 
       describe(".buildCal", () => {
         it("Should return the calendar for January 2015", () => {
-          const expected = spawn("cal 1 2015").toString();
+          const expected = execSync("cal 1 2015").toString();
           const actual = utility.buildCal(0, 2015).join("\n") + "\n";
           expect(actual).to.equal(expected);
         });
 
         it("Should return the calendar for February 2012", () => {
-          const expected = spawn("cal 2 2012").toString();
+          const expected = execSync("cal 2 2012").toString();
           const actual = utility.buildCal(1, 2012).join("\n") + "\n";
           expect(actual).to.equal(expected);
         });
 
         it("Should return the calendar for November 7685", () => {
-          const expected = spawn("cal 11 7685").toString();
+          const expected = execSync("cal 11 7685").toString();
           const actual = utility.buildCal(10, 7685).join("\n") + "\n";
           expect(actual).to.equal(expected);
         });
 
         it("Should return the calendar for August 2215", () => {
-          const expected = spawn("cal 8 2215").toString();
+          const expected = execSync("cal 8 2215").toString();
           const actual = utility.buildCal(7, 2215).join("\n") + "\n";
           expect(actual).to.equal(expected);
         });
         it("Should return the calendar for February 2022", () => {
-          const expected = spawn("cal 2 2022").toString();
+          const expected = execSync("cal 2 2022").toString();
           const actual = utility.buildCal(1, 2022).join("\n") + "\n";
           expect(actual).to.equal(expected);
         });

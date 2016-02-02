@@ -1,7 +1,7 @@
 "use strict";
 
-const {expect} = require("chai");
-const {spawn} = require("child_process");
+const expect = require("chai").expect;
+const execSync = require("child_process").execSync;
 
 describe("Pointed Tests", () => {
   describe("Test suite", () => {
@@ -13,14 +13,14 @@ describe("Pointed Tests", () => {
   describe("Calendar", () => {
     describe("CLI", () => {
       it("Calendar for Aug 2015", () => {
-        const expected = spawn("cal 8 2015").toString();
-        const actual = spawn("./cal.js 8 2015").toString();
+        const expected = execSync("cal 8 2015").toString();
+        const actual = execSync("./cal.js 8 2015").toString();
         expect(actual).to.equal(expected);
       });
 
       it("Calendar for November 2015", () => {
-        const expected = spawn("cal 11 2015").toString();
-        const actual = spawn("./cal.js 11 2015").toString();
+        const expected = execSync("cal 11 2015").toString();
+        const actual = execSync("./cal.js 11 2015").toString();
         expect(actual).to.equal(expected);
       });
     });
@@ -42,13 +42,13 @@ describe("Pointed Tests", () => {
       var utility = require("../lib/utility");
       describe(".buildCal", () => {
         it("Should return the calendar for August 2015", () => {
-          const expected = spawn("cal 8 2015").toString();
+          const expected = execSync("cal 8 2015").toString();
           const actual = utility.buildCal(7, 2015).join("\n") + "\n";
           expect(actual).to.equal(expected);
         });
 
         it("Should return the calendar for November 2015", () => {
-          const expected = spawn("cal 11 2015").toString();
+          const expected = execSync("cal 11 2015").toString();
           const actual = utility.buildCal(10, 2015).join("\n") + "\n";
           expect(actual).to.equal(expected);
         });
