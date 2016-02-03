@@ -228,10 +228,25 @@ describe("Full test", () => {
           const actual = utility.buildMonth(7, 2215).join("\n") + "\n";
           expect(actual).to.equal(expected);
         });
+
         it("Should return the calendar for February 2022", () => {
           const expected = execSync("cal 2 2022").toString();
           const actual = utility.buildMonth(1, 2022).join("\n") + "\n";
           expect(actual).to.equal(expected);
+        });
+
+        it("Should center the month name and add padding for year view", () => {
+          const expected = ["        May           ",
+            "Su Mo Tu We Th Fr Sa  ",
+            "                1  2  ",
+            " 3  4  5  6  7  8  9  ",
+            "10 11 12 13 14 15 16  ",
+            "17 18 19 20 21 22 23  ",
+            "24 25 26 27 28 29 30  ",
+            "31                    ",
+          ];
+          const actual = utility.buildMonth(4, 2015, true);
+          expect(actual).to.eql(expected);
         });
       });
 
