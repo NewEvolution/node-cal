@@ -40,16 +40,16 @@ describe("Pointed Tests", () => {
 
     describe("Utility functions", () => {
       var utility = require("../lib/utility");
-      describe(".buildCal", () => {
+      describe(".buildMonth", () => {
         it("Should return the calendar for August 2015", () => {
           const expected = execSync("cal 8 2015").toString();
-          const actual = utility.buildCal(7, 2015).join("\n") + "\n";
+          const actual = utility.buildMonth(7, 2015).join("\n") + "\n";
           expect(actual).to.equal(expected);
         });
 
         it("Should return the calendar for November 2015", () => {
           const expected = execSync("cal 11 2015").toString();
-          const actual = utility.buildCal(10, 2015).join("\n") + "\n";
+          const actual = utility.buildMonth(10, 2015).join("\n") + "\n";
           expect(actual).to.equal(expected);
         });
       });

@@ -204,33 +204,33 @@ describe("Full test", () => {
         });
       });
 
-      describe(".buildCal", () => {
+      describe(".buildMonth", () => {
         it("Should return the calendar for January 2015", () => {
           const expected = execSync("cal 1 2015").toString();
-          const actual = utility.buildCal(0, 2015).join("\n") + "\n";
+          const actual = utility.buildMonth(0, 2015).join("\n") + "\n";
           expect(actual).to.equal(expected);
         });
 
         it("Should return the calendar for February 2012", () => {
           const expected = execSync("cal 2 2012").toString();
-          const actual = utility.buildCal(1, 2012).join("\n") + "\n";
+          const actual = utility.buildMonth(1, 2012).join("\n") + "\n";
           expect(actual).to.equal(expected);
         });
 
         it("Should return the calendar for November 7685", () => {
           const expected = execSync("cal 11 7685").toString();
-          const actual = utility.buildCal(10, 7685).join("\n") + "\n";
+          const actual = utility.buildMonth(10, 7685).join("\n") + "\n";
           expect(actual).to.equal(expected);
         });
 
         it("Should return the calendar for August 2215", () => {
           const expected = execSync("cal 8 2215").toString();
-          const actual = utility.buildCal(7, 2215).join("\n") + "\n";
+          const actual = utility.buildMonth(7, 2215).join("\n") + "\n";
           expect(actual).to.equal(expected);
         });
         it("Should return the calendar for February 2022", () => {
           const expected = execSync("cal 2 2022").toString();
-          const actual = utility.buildCal(1, 2022).join("\n") + "\n";
+          const actual = utility.buildMonth(1, 2022).join("\n") + "\n";
           expect(actual).to.equal(expected);
         });
       });
