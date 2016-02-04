@@ -305,15 +305,6 @@ describe("Full test", () => {
           const actual = utility.buildMonth(4, 2015, true);
           expect(actual).to.eql(expected);
         });
-
-        it("Should return the current month", () => {
-          const date = new Date();
-          const month = date.getMonth();
-          const year = date.getFullYear();
-          const expected = execSync("cal").toString();
-          const actual = utility.buildMonth(month, year).join("\n") + "\n";
-          expect(actual).to.equal(expected);
-        });
       });
 
       describe(".buildYear", () => {
