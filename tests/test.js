@@ -346,7 +346,10 @@ describe("Full test", () => {
           expect(actual).to.equal(expected);
         });
 
+        const environment = process.platform;
+        let testEnv;
         it("Should return Linux formatted year view", () => {
+          testEnv = (environment === "darwin");
           const expected = [
             "                            2000",
             "      January               February               March          ",
@@ -385,11 +388,12 @@ describe("Full test", () => {
             "29 30 31              26 27 28 29 30        24 25 26 27 28 29 30  ",
             "                                            31                    "
           ];
-          const actual = utility.buildYear(2000, true);
+          const actual = utility.buildYear(2000, testEnv);
           expect(actual).to.eql(expected);
         });;
 
         it("Should return OS X formatted year view", () => {
+          testEnv = (environment != "darwin");
           const expected = [
             "                             2000",
             "",
@@ -426,7 +430,7 @@ describe("Full test", () => {
             "29 30 31              26 27 28 29 30        24 25 26 27 28 29 30",
             "                                            31"
           ];
-          const actual = utility.buildYear(2000);
+          const actual = utility.buildYear(2000, testEnv);
           expect(actual).to.eql(expected);
         });
       });
