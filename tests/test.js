@@ -333,7 +333,7 @@ describe("Full test", () => {
 
         it("Should output Linux formatted year view", () => {
           const expected = [
-            "                             2000",
+            "                            2000",
             "      January               February               March          ",
             "Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  ",
             "                   1         1  2  3  4  5            1  2  3  4  ",
@@ -342,6 +342,7 @@ describe("Full test", () => {
             "16 17 18 19 20 21 22  20 21 22 23 24 25 26  19 20 21 22 23 24 25  ",
             "23 24 25 26 27 28 29  27 28 29              26 27 28 29 30 31     ",
             "30 31                                                             ",
+            "",
             "       April                  May                   June          ",
             "Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  ",
             "                   1      1  2  3  4  5  6               1  2  3  ",
@@ -350,6 +351,7 @@ describe("Full test", () => {
             "16 17 18 19 20 21 22  21 22 23 24 25 26 27  18 19 20 21 22 23 24  ",
             "23 24 25 26 27 28 29  28 29 30 31           25 26 27 28 29 30     ",
             "30                                                                ",
+            "",
             "        July                 August              September        ",
             "Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  ",
             "                   1         1  2  3  4  5                  1  2  ",
@@ -358,6 +360,7 @@ describe("Full test", () => {
             "16 17 18 19 20 21 22  20 21 22 23 24 25 26  17 18 19 20 21 22 23  ",
             "23 24 25 26 27 28 29  27 28 29 30 31        24 25 26 27 28 29 30  ",
             "30 31                                                             ",
+            "",
             "      October               November              December        ",
             "Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  ",
             " 1  2  3  4  5  6  7            1  2  3  4                  1  2  ",
