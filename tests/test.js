@@ -185,11 +185,11 @@ describe("Full test", () => {
           expect(utility.center(20, "May", "120")).to.equal("      May 120");
         });
 
-        it("Should center October for year view", () => {
+        it("Should center October in month width for year view", () => {
           expect(utility.center(20, "October")).to.equal("      October");
         });
 
-        it("Should center 2016 for year view", () => {
+        it("Should center 2016 in year width for year view", () => {
           expect(utility.center(63, 2016)).to.equal("                             2016");
         });
       });
@@ -277,7 +277,7 @@ describe("Full test", () => {
           expect(actual).to.equal(expected);
         });
 
-        it("Should center the month name and add padding for year view", () => {
+        it("Should center the month name for year view and add padding for year view & Linux", () => {
           const expected = ["        May           ",
             "Su Mo Tu We Th Fr Sa  ",
             "                1  2  ",
