@@ -251,8 +251,42 @@ describe("Full test", () => {
       });
 
       describe(".buildYear", () => {
-        it("Should have a junk test", () => {
-          expect(utility.buildYear()).to.eql(["", ""]);
+        it("Should output the current year", () => {
+          const date = new Date();
+          const year = date.getFullYear();
+          const expected = execSync(`cal ${year}`).toString();
+          const actual = utility.buildYear(year).join("\n") + "\n";
+          expect(actual).to.equal(expected);
+        });
+
+        it("Should return the year for 2016", () => {
+          const expected = execSync("cal 2016").toString();
+          const actual = utility.buildYear(2016).join("\n") + "\n";
+          expect(actual).to.equal(expected);
+        });
+
+        it("Should return the year for 2000", () => {
+          const expected = execSync("cal 2000").toString();
+          const actual = utility.buildYear(2000).join("\n") + "\n";
+          expect(actual).to.equal(expected);
+        });
+
+        it("Should return the year for 2100", () => {
+          const expected = execSync("cal 2100").toString();
+          const actual = utility.buildYear(2100).join("\n") + "\n";
+          expect(actual).to.equal(expected);
+        });
+
+        it("Should return the year for 2200", () => {
+          const expected = execSync("cal 2200").toString();
+          const actual = utility.buildYear(2200).join("\n") + "\n";
+          expect(actual).to.equal(expected);
+        });
+
+        it("Should return the year for 2300", () => {
+          const expected = execSync("cal 2300").toString();
+          const actual = utility.buildYear(2300).join("\n") + "\n";
+          expect(actual).to.equal(expected);
         });
       });
 
