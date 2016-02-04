@@ -190,7 +190,7 @@ describe("Full test", () => {
         });
 
         it("Should center 2016 in year width for year view", () => {
-          expect(utility.center(63, 2016)).to.equal("                             2016");
+          expect(utility.center(62, 2016)).to.equal("                             2016");
         });
       });
 
