@@ -277,6 +277,21 @@ describe("Full test", () => {
           expect(actual).to.equal(expected);
         });
 
+        it("Should return an OS X formatted calendar", () => {
+          const expected = [
+            "      May 2012",
+            "Su Mo Tu We Th Fr Sa",
+            "       1  2  3  4  5",
+            " 6  7  8  9 10 11 12",
+            "13 14 15 16 17 18 19",
+            "20 21 22 23 24 25 26",
+            "27 28 29 30 31",
+            ""
+          ];
+          const actual = utility.buildMonth(4, 2012, false, true);
+          expect(actual).to.eql(expected);
+        });
+
         it("Should center the month name for year view and add padding for year view & Linux", () => {
           const expected = ["        May           ",
             "Su Mo Tu We Th Fr Sa  ",
@@ -285,7 +300,7 @@ describe("Full test", () => {
             "10 11 12 13 14 15 16  ",
             "17 18 19 20 21 22 23  ",
             "24 25 26 27 28 29 30  ",
-            "31                    ",
+            "31                    "
           ];
           const actual = utility.buildMonth(4, 2015, true);
           expect(actual).to.eql(expected);
