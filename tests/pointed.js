@@ -1,4 +1,5 @@
 "use strict";
+/* eslint no-magic-numbers: 0 */
 
 const expect = require("chai").expect;
 const execSync = require("child_process").execSync;
@@ -28,7 +29,7 @@ describe("Pointed Tests", () => {
     describe("Zeller's congruence", () => {
       var zellers = require("../lib/zellers");
       describe(".getDay", () => {
-       it("Should return 6 (Saturday) for August 1, 2015", () => {
+        it("Should return 6 (Saturday) for August 1, 2015", () => {
           expect(zellers.getDay(2015, 8, 1)).to.equal(6);
         });
 
