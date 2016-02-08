@@ -18,7 +18,10 @@
       "node": true,
       "es6": true
     },
-    "extends": "eslint:recommended"
+    "extends": "eslint:recommended",
+    "rules": {
+      "no-console": 0
+    }
   },
   "author": "Ryan Tanay <rtanay@gmail.com> (http://portfolio.ryantanay.com/)",
   "license": "MIT",

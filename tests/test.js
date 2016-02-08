@@ -60,7 +60,7 @@ describe("Full test", () => {
           const actual = execSync("./cal.js 2 2014").toString();
           expect(actual).to.equal(expected);
         });
-      });;
+      });
 
       describe("Year output", () => {
         it("Should return the current year", () => {
@@ -390,7 +390,7 @@ describe("Full test", () => {
           ];
           const actual = utility.buildYear(2000, testEnv);
           expect(actual).to.eql(expected);
-        });;
+        });
 
         it("Should return OS X formatted year view", () => {
           testEnv = (environment != "darwin");
