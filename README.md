@@ -7,10 +7,10 @@ Built using TDD with [Mocha](http://mochajs.org/) and [Chai](http://chaijs.com/)
 distributed testing & [Coveralls](https://coveralls.io/) for test coverage.
 
 ###Usage
-- Post clone, run _npm install_ in the main directory
-- Calling _./cal.js_ with no arguments returns the current month's
+- Post clone, run `npm install` in the main directory
+- Calling `./cal.js` with no arguments returns the current month's
   calendar
-- _./cal.js <year>_ with a 4 digit year will return the year calendar
+- `./cal.js <year>` with a 4 digit year will return the year calendar
   for that year
-- _./cal.js <month> <year>_ with month name, abbreviation or number and
+- `./cal.js <month> <year>` with month name, abbreviation or number and
   a 4 digit year will return that month's calendar.
