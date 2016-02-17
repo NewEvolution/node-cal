@@ -7,7 +7,7 @@ const execSync = require("child_process").execSync;
 describe("Full test", () => {
   describe("Test suite", () => {
     it("True should be true", () => {
-      expect(true).to.be.true;
+      expect(true).to.be.true; // eslint-disable-line no-unused-expressions
     });
   });
 
@@ -350,7 +350,7 @@ describe("Full test", () => {
         const environment = process.platform;
         let testEnv;
         it("Should return Linux formatted year view", () => {
-          testEnv = (environment === "darwin");
+          testEnv = environment === "darwin";
           const expected = [
             "                            2000",
             "      January               February               March          ",
@@ -394,7 +394,7 @@ describe("Full test", () => {
         });
 
         it("Should return OS X formatted year view", () => {
-          testEnv = (environment !== "darwin");
+          testEnv = environment !== "darwin";
           const expected = [
             "                             2000",
             "",

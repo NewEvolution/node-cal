@@ -7,7 +7,7 @@ const execSync = require("child_process").execSync;
 describe("Pointed Tests", () => {
   describe("Test suite", () => {
     it("True should be true", () => {
-      expect(true).to.be.true;
+      expect(true).to.be.true; // eslint-disable-line no-unused-expressions
     });
   });
 
