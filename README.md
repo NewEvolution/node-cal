@@ -3,8 +3,10 @@
 
 Replication of the command line app 'cal' written as a Node.js module.
 
-Built using TDD with [Mocha](http://mochajs.org/) and [Chai](http://chaijs.com/) with [Travis CI](https://travis-ci.org/) for
-distributed testing & [Coveralls](https://coveralls.io/) for test coverage.
+Built using TDD with [Mocha](http://mochajs.org/) and [Chai](http://chaijs.com/) with [Travis CI](https://travis-ci.org/) for distributed testing & [Coveralls](https://coveralls.io/) for test coverage.
+
+###Requirements
+Installation of [Node.js](https://nodejs.org/)
 
 ###Usage
 - Post clone, run `npm install` in the main directory
